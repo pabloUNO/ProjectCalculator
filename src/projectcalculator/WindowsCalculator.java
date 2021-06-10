@@ -105,6 +105,11 @@ public class WindowsCalculator extends javax.swing.JFrame {
         jButton2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jButton2.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn1.png"))); // NOI18N
         jButton2.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/botton_pressed.png"))); // NOI18N
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
         jPanel3.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 270, 60, 50));
 
         jButton3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -364,6 +369,11 @@ public class WindowsCalculator extends javax.swing.JFrame {
         jButton20.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jButton20.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn1.png"))); // NOI18N
         jButton20.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/botton_pressed.png"))); // NOI18N
+        jButton20.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton20ActionPerformed(evt);
+            }
+        });
         jPanel3.add(jButton20, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 270, 60, 50));
 
         jButton21.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -382,19 +392,23 @@ public class WindowsCalculator extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton15ActionPerformed
-        txtOperation.setText("1");
+        String one = "1";
+        txtOperation.setText(txtOperation.getText()+one);
     }//GEN-LAST:event_jButton15ActionPerformed
 
     private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton13ActionPerformed
-       txtOperation.setText("6");
+       String six = "6";
+        txtOperation.setText(txtOperation.getText()+six);
     }//GEN-LAST:event_jButton13ActionPerformed
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
-        txtOperation.setText("8");
+        String eight = "8";
+        txtOperation.setText(txtOperation.getText()+eight);
     }//GEN-LAST:event_jButton8ActionPerformed
 
     private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
-         txtOperation.setText("X");
+        String by = "X";
+        txtOperation.setText(txtOperation.getText()+by);
     }//GEN-LAST:event_jButton10ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
@@ -418,45 +432,67 @@ public class WindowsCalculator extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton16ActionPerformed
-        txtOperation.setText("2");
+        String two = "2";
+        txtOperation.setText(txtOperation.getText()+two);
     }//GEN-LAST:event_jButton16ActionPerformed
 
     private void jButton17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton17ActionPerformed
-        txtOperation.setText("3");
+        String three = "3";
+        txtOperation.setText(txtOperation.getText()+three);
     }//GEN-LAST:event_jButton17ActionPerformed
 
     private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
-        txtOperation.setText("4");
+        String four = "4";
+        txtOperation.setText(txtOperation.getText()+four);
     }//GEN-LAST:event_jButton11ActionPerformed
 
     private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
-        txtOperation.setText("5");
+        String five = "5";
+        txtOperation.setText(txtOperation.getText()+five);
     }//GEN-LAST:event_jButton12ActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
-        txtOperation.setText("7");
+       String seven = "7";
+        txtOperation.setText(txtOperation.getText()+seven);
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
-        txtOperation.setText("9"); 
-        txtOperation.getText();
+        String nine = "9";
+        txtOperation.setText(txtOperation.getText()+nine); 
     }//GEN-LAST:event_jButton9ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-         txtOperation.setText("/");
+         String divide = "/";
+        txtOperation.setText(txtOperation.getText()+divide);
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jButton14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton14ActionPerformed
-         txtOperation.setText("-");
+         String substraction = "-";
+        txtOperation.setText(txtOperation.getText()+substraction);
     }//GEN-LAST:event_jButton14ActionPerformed
 
     private void jButton18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton18ActionPerformed
-        txtOperation.setText("+");
+        String plus = "+";
+        txtOperation.setText(txtOperation.getText()+plus);
     }//GEN-LAST:event_jButton18ActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
+    private void jButton20ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton20ActionPerformed
+        String zero = "0";
+        txtOperation.setText(txtOperation.getText()+zero);
+    }//GEN-LAST:event_jButton20ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        if (txtOperation.getText() == "+") {
+        suma();
+        }
+    }//GEN-LAST:event_jButton2ActionPerformed
+    
+    public int suma() {
+    int resultado_suma = 0; 
+    resultado_suma = Integer.parseInt(txtOperation.getText()) + Integer.parseInt(txtOperation.getText());
+    
+    return resultado_suma;
+    }
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
