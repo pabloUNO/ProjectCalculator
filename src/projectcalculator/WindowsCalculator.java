@@ -3,13 +3,21 @@ package projectcalculator;
 
 
 public class WindowsCalculator extends javax.swing.JFrame {
-
+    private double numbers[] = new double[2];
+    
+    private boolean decimal = false; 
+    private boolean plus_ = false; 
+    private boolean subs_ = false; 
+    private boolean div_ = false; 
+    private boolean by_ = false;
    
     public WindowsCalculator() {
         initComponents(); 
         setLocationRelativeTo(null);
     }
-
+    public WindowsCalculator(javax.swing.JLabel txtOperation) {
+    this.txtOperation = txtOperation;
+    }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -359,6 +367,11 @@ public class WindowsCalculator extends javax.swing.JFrame {
         jButton19.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jButton19.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn1.png"))); // NOI18N
         jButton19.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/botton_pressed.png"))); // NOI18N
+        jButton19.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton19ActionPerformed(evt);
+            }
+        });
         jPanel3.add(jButton19, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 270, 60, 50));
 
         jButton20.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -384,6 +397,11 @@ public class WindowsCalculator extends javax.swing.JFrame {
         jButton21.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jButton21.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn1.png"))); // NOI18N
         jButton21.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/botton_pressed.png"))); // NOI18N
+        jButton21.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton21ActionPerformed(evt);
+            }
+        });
         jPanel3.add(jButton21, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 270, 60, 50));
 
         getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 150, 310, 350));
@@ -472,8 +490,14 @@ public class WindowsCalculator extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton14ActionPerformed
 
     private void jButton18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton18ActionPerformed
-        String plus = "+";
-        txtOperation.setText(txtOperation.getText()+plus);
+        
+        try {
+            numbers[0] = Double.parseDouble(txtOperation.getText()); 
+            String plus = "+";
+             txtOperation.setText(txtOperation.getText()+plus);  
+             plus_ = true;
+        } catch (Exception e) {
+        }
     }//GEN-LAST:event_jButton18ActionPerformed
 
     private void jButton20ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton20ActionPerformed
@@ -482,17 +506,54 @@ public class WindowsCalculator extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton20ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        if (txtOperation.getText() == "+") {
-        suma();
+    Double rest_; 
+        try {
+            numbers[1] = Double.parseDouble(txtOperation.getText()); 
+            if(plus_ == true) {
+            if(numbers[1] == 0) {
+            txtOperation.setText("Failed");
+            }else {
+            rest_= numbers[0] + numbers[1]; 
+            txtOperation.setText(Double.toString(rest_));
+            }
+            }else if(subs_ == true) {
+            if(numbers[1] == 0) {
+            txtOperation.setText("Failed");
+            } 
+            else {
+            rest_= numbers[0] - numbers[1]; 
+            txtOperation.setText(Double.toString(rest_));
+            }
+            }else if(div_ == true) {
+            if(numbers[1] == 0) {
+            txtOperation.setText("Failed");
+            }else {
+            rest_= numbers[0] / numbers[1]; 
+            txtOperation.setText(Double.toString(rest_));
+            } 
+            }else if(by_ == true) {
+            if(numbers[1] == 0) {
+            txtOperation.setText("Failed");
+            }else {
+            rest_= numbers[0] * numbers[1]; 
+            txtOperation.setText(Double.toString(rest_));
+            } 
+            }  
+            
+        } catch (Exception e) {
         }
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton21ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton21ActionPerformed
+        String point = ".";
+        txtOperation.setText(txtOperation.getText()+point);
+    }//GEN-LAST:event_jButton21ActionPerformed
+
+    private void jButton19ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton19ActionPerformed
+        String moreless = "±";
+        txtOperation.setText(txtOperation.getText()+moreless);
+    }//GEN-LAST:event_jButton19ActionPerformed
     
-    public int suma() {
-    int resultado_suma = 0; 
-    resultado_suma = Integer.parseInt(txtOperation.getText()) + Integer.parseInt(txtOperation.getText());
-    
-    return resultado_suma;
-    }
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
