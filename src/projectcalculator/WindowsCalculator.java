@@ -3,7 +3,7 @@ package projectcalculator;
 
 
 public class WindowsCalculator extends javax.swing.JFrame {
-    private double numbers[] = new double[2];
+    private double[] numbers = new double[2];
     
     private boolean decimal = false; 
     private boolean plus_ = false; 
@@ -425,8 +425,13 @@ public class WindowsCalculator extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton8ActionPerformed
 
     private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
-        String by = "X";
-        txtOperation.setText(txtOperation.getText()+by);
+        try {
+            numbers[0] = Double.parseDouble(txtOperation.getText()); 
+             txtOperation.setText("");
+             by_ = true; 
+             decimal = true;
+        } catch (Exception e) {
+        }
     }//GEN-LAST:event_jButton10ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
@@ -480,22 +485,32 @@ public class WindowsCalculator extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton9ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-         String divide = "/";
-        txtOperation.setText(txtOperation.getText()+divide);
+         try {
+            numbers[0] = Double.parseDouble(txtOperation.getText()); 
+             txtOperation.setText("");
+             div_ = true; 
+             decimal = true;
+        } catch (Exception e) {
+        }
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jButton14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton14ActionPerformed
-         String substraction = "-";
-        txtOperation.setText(txtOperation.getText()+substraction);
+         try {
+            numbers[0] = Double.parseDouble(txtOperation.getText()); 
+             txtOperation.setText("");
+             subs_ = true; 
+             decimal = true;
+        } catch (Exception e) {
+        }
     }//GEN-LAST:event_jButton14ActionPerformed
 
     private void jButton18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton18ActionPerformed
         
         try {
             numbers[0] = Double.parseDouble(txtOperation.getText()); 
-            String plus = "+";
-             txtOperation.setText(txtOperation.getText()+plus);  
-             plus_ = true;
+             txtOperation.setText("");
+             plus_ = true; 
+             decimal = true;
         } catch (Exception e) {
         }
     }//GEN-LAST:event_jButton18ActionPerformed
@@ -511,32 +526,32 @@ public class WindowsCalculator extends javax.swing.JFrame {
             numbers[1] = Double.parseDouble(txtOperation.getText()); 
             if(plus_ == true) {
             if(numbers[1] == 0) {
-            txtOperation.setText("Failed");
+            txtResult.setText("Failed");
             }else {
             rest_= numbers[0] + numbers[1]; 
-            txtOperation.setText(Double.toString(rest_));
+            txtResult.setText(Double.toString(rest_));
             }
             }else if(subs_ == true) {
             if(numbers[1] == 0) {
-            txtOperation.setText("Failed");
+            txtResult.setText("Failed");
             } 
             else {
             rest_= numbers[0] - numbers[1]; 
-            txtOperation.setText(Double.toString(rest_));
+            txtResult.setText(Double.toString(rest_));
             }
             }else if(div_ == true) {
             if(numbers[1] == 0) {
-            txtOperation.setText("Failed");
+            txtResult.setText("Failed");
             }else {
             rest_= numbers[0] / numbers[1]; 
-            txtOperation.setText(Double.toString(rest_));
+            txtResult.setText(Double.toString(rest_));
             } 
             }else if(by_ == true) {
             if(numbers[1] == 0) {
-            txtOperation.setText("Failed");
+            txtResult.setText("Failed");
             }else {
             rest_= numbers[0] * numbers[1]; 
-            txtOperation.setText(Double.toString(rest_));
+            txtResult.setText(Double.toString(rest_));
             } 
             }  
             
