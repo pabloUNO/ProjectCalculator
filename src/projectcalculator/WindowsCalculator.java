@@ -3,7 +3,8 @@ package projectcalculator;
 
 
 public class WindowsCalculator extends javax.swing.JFrame {
-    private double[] numbers = new double[2];
+    private double[] numbers = new double[30];
+    private String[] op = new String[1];
     
     private boolean decimal = false; 
     private boolean plus_ = false; 
@@ -507,8 +508,8 @@ public class WindowsCalculator extends javax.swing.JFrame {
     private void jButton18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton18ActionPerformed
         
         try {
-            numbers[0] = Double.parseDouble(txtOperation.getText()); 
-             txtOperation.setText("");
+            numbers[0] = Double.parseDouble(txtOperation.getText());  
+            txtOperation.setText("");
              plus_ = true; 
              decimal = true;
         } catch (Exception e) {
